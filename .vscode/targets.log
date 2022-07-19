@@ -13,7 +13,7 @@ Makefile:36: pipe: No error
 # There is NO WARRANTY, to the extent permitted by law.
  
 
-# Make data base, printed on Tue Jul 19 15:47:02 2022
+# Make data base, printed on Tue Jul 19 17:41:05 2022
 
 # Variables
 
@@ -44,7 +44,7 @@ MAKE_COMMAND := C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe
 # automatic
 @D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_22112_IJGBQGDLFAPWNROC
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_24700_QJCYJTOBMHTJOJUM
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -74,7 +74,7 @@ ONEDRIVE = C:\Users\guilh\OneDrive
 # makefile
 CURDIR := c:/Users/guilh/Desktop/Tudo/UFAM/ptr/lab1
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # automatic
 *D = $(patsubst %/,%,$(patsubst %\,%,$(dir $*)))
 # environment
@@ -92,7 +92,7 @@ MAKEFILE_LIST := Makefile
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 22112
+VSCODE_PID = 24700
 # makefile (from 'Makefile', line 7)
 sources = $(filter-out $(srcdir)/main.c, $(wildcard $(srcdir)/*.c))
 # environment
@@ -234,7 +234,8 @@ ELECTRON_NO_ATTACH_CONSOLE = 1
 # makefile (from 'Makefile', line 14)
 libdir = ./lib
 # default
-.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync load
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobs 
+erver output-sync load
 # environment
 PROCESSOR_REVISION = 8e0b
 # makefile (from 'Makefile', line 16)
@@ -253,7 +254,7 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 142 Stepping 11, GenuineIntel
 # Directories
 
 # src (key c:/Users/guilh/Desktop/Tudo/UFAM/ptr/lab1/src, mtime 1658259989): No files, no impossibilities so far.
-# . (key c:/Users/guilh/Desktop/Tudo/UFAM/ptr/lab1, mtime 1658208745): 11 files, no impossibilities.
+# . (key c:/Users/guilh/Desktop/Tudo/UFAM/ptr/lab1, mtime 1658260844): 11 files, no impossibilities.
 
 # 11 files, no impossibilities in 2 directories.
 
@@ -331,12 +332,11 @@ run:
 # No general ('VPATH' variable) search path.
 
 # strcache buffers: 1 (0) / strings = 20 / storage = 124 B / avg = 6 B
-# current buf: si 
-ze = 8174 B / used = 124 B / count = 20 / avg = 6 B
+# current buf: size = 8174 B / used = 124 B / count = 20 / avg = 6 B
 
 # strcache performance: lookups = 33 / hit rate = 39%
 # hash-table stats:
 # Load=20/8192=0%, Rehash=0, Collisions=0/33=0%
-# Finished Make data base on Tue Jul 19 15:47:02 2022
+# Finished Make data base on Tue Jul 19 17:41:05 2022
 
  

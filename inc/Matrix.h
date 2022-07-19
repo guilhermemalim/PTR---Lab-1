@@ -28,6 +28,9 @@ typedef struct TMResponse {
 
 typedef double (*F_aplicavel)(double);
 
+extern Matrix M_NULL;
+extern Matrix *MATRIX_NULL;
+
 Matrix* _alloc_matrix(unsigned int nlins, unsigned int ncols);
 
 Matrix* matrix_zeros(unsigned int nlins, unsigned int ncols);
