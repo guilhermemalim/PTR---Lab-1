@@ -13,7 +13,7 @@ Makefile:36: pipe: No error
 # There is NO WARRANTY, to the extent permitted by law.
  
 
-# Make data base, printed on Mon Jul 18 16:38:35 2022
+# Make data base, printed on Tue Jul 19 15:47:02 2022
 
 # Variables
 
@@ -44,7 +44,7 @@ MAKE_COMMAND := C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe
 # automatic
 @D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_10620_GEUXFHFMMIWMFIBQ
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_22112_IJGBQGDLFAPWNROC
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -56,7 +56,7 @@ VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
 %F = $(notdir $%)
 # environment
-VSCODE_CODE_CACHE_PATH = C:\Users\guilh\AppData\Roaming\Code\CachedData\b06ae3b2d2dbfe28bca3134cc6be65935cdfea6a
+VSCODE_CODE_CACHE_PATH = C:\Users\guilh\AppData\Roaming\Code\CachedData\3b889b090b5ad5793f524b5d1d39fda662b96a2a
 # environment
 LANG = C
 # default
@@ -92,7 +92,7 @@ MAKEFILE_LIST := Makefile
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 10620
+VSCODE_PID = 22112
 # makefile (from 'Makefile', line 7)
 sources = $(filter-out $(srcdir)/main.c, $(wildcard $(srcdir)/*.c))
 # environment
@@ -198,8 +198,7 @@ PUBLIC = C:\Users\Public
 # environment
 APPDATA = C:\Users\guilh\AppData\Roaming
 # makefile (from 'Makefile', line 17)
-CF 
-LAGS = -Wall -O3 -I $(incdir)
+CFLAGS = -Wall -O3 -I $(incdir)
 # environment
 HOMEDRIVE = C:
 # environment
@@ -215,7 +214,7 @@ ELECTRON_RUN_AS_NODE = 1
 # environment
 TEMP = C:\Users\guilh\AppData\Local\Temp
 # environment
-VSCODE_IPC_HOOK = \\.\pipe\964fa2fe24f60ee8dc6eb594565e47d7-1.69.1-main-sock
+VSCODE_IPC_HOOK = \\.\pipe\964fa2fe24f60ee8dc6eb594565e47d7-1.69.2-main-sock
 # makefile (from 'Makefile', line 13)
 objdir = ./obj
 # default
@@ -253,9 +252,8 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 142 Stepping 11, GenuineIntel
 
 # Directories
 
-# src (key c:/Users/guilh/Desktop/Tudo/UFAM/ptr/lab1/src, mtime 1658152369): No files, no 
- impossibilities so far.
-# . (key c:/Users/guilh/Desktop/Tudo/UFAM/ptr/lab1, mtime 1658164707): 11 files, no impossibilities.
+# src (key c:/Users/guilh/Desktop/Tudo/UFAM/ptr/lab1/src, mtime 1658259989): No files, no impossibilities so far.
+# . (key c:/Users/guilh/Desktop/Tudo/UFAM/ptr/lab1, mtime 1658208745): 11 files, no impossibilities.
 
 # 11 files, no impossibilities in 2 directories.
 
@@ -276,7 +274,6 @@ Makefile:
 #  Successfully updated.
 
 clean:
- 
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
@@ -334,11 +331,12 @@ run:
 # No general ('VPATH' variable) search path.
 
 # strcache buffers: 1 (0) / strings = 20 / storage = 124 B / avg = 6 B
-# current buf: size = 8174 B / used = 124 B / count = 20 / avg = 6 B
+# current buf: si 
+ze = 8174 B / used = 124 B / count = 20 / avg = 6 B
 
 # strcache performance: lookups = 33 / hit rate = 39%
 # hash-table stats:
 # Load=20/8192=0%, Rehash=0, Collisions=0/33=0%
-# Finished Make data base on Mon Jul 18 16:38:35 2022
+# Finished Make data base on Tue Jul 19 15:47:02 2022
 
  

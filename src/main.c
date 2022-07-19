@@ -65,11 +65,18 @@ void teste_matrix() {
     printf("FIM\n");
     print_matrix(m2_1);
 
+    MResponse mul = matrix_mul(m2, m2_1);
+    Matrix *m3 = mul.m;
+
+    printf("FIM\n");
+    print_matrix(m3);
+
 
     matrix_free(m1);
     matrix_free(id);
     matrix_free(m2);
     matrix_free(m2_1);
+    matrix_free(m3);
 }
 
 int main() {

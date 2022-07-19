@@ -163,14 +163,14 @@ MResponse matrix_mul(Matrix* A, Matrix* B) {
     }
 
     Matrix *m = _alloc_matrix(nlins_A, ncols_B);
-    int sum = 0;
+    double sum = 0;
     // processar multiplicação
     for (int i = 0; i < nlins_A; i++) {
         for (int j = 0; j < ncols_B; j++) {
             sum = 0;
 
             for(int k = 0; k < ncols_A; k++) {
-                sum += matrix_get_value(A, i, k) * matrix_get_value(B, k, i);
+                sum += matrix_get_value(A, i, k) * matrix_get_value(B, k, j);
             }
             VALUES(m, i, j) = sum;
         }
