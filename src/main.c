@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "Integral.h"
 #include "DString.h"
+#include "Matrix.h"
 
 void teste_integrate() {
 
@@ -37,12 +38,48 @@ void teste_dstring() {
     destroyDString(ds3);
 }
 
+void teste_matrix() {
+    unsigned int nlins = 3, ncols = 3;
+    Matrix* m1 = matrix_ones(nlins, ncols);
+    Matrix* id = matrix_identity(nlins, ncols);
+
+    print_matrix(m1);
+    printf("FIM\n");
+    print_matrix(id);
+
+    MResponse response1 = matrix_mul(m1, id);
+    printf("FIM\n");
+    print_matrix(response1.m);
+    
+    printf("Det m1: %lf\n", matrix_det(m1));
+    printf("Det id: %lf\n", matrix_det(id));
+
+    Matrix *m2 = create_random_matrix(4,4);
+    printf("FIM\n");
+    print_matrix(m2);
+    printf("Det m2: %lf\n", matrix_det(m2));
+
+    MResponse rm2_1 = matrix_inversa(m2);
+    Matrix *m2_1 = rm2_1.m;
+    printf("Erro na inversao: %d\n", rm2_1.erro);
+    printf("FIM\n");
+    print_matrix(m2_1);
+
+
+    matrix_free(m1);
+    matrix_free(id);
+    matrix_free(m2);
+    matrix_free(m2_1);
+}
+
 int main() {
 
     printf("Hey\n");
 
-    teste_integrate();
-    teste_dstring();
+    // teste_integrate();
+    // teste_dstring();
+
+    teste_matrix();
 
     return 0;
 }
