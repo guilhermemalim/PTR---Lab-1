@@ -211,8 +211,8 @@ Matrix* matrix_dif_com_escalar(double c, Matrix* m) {
 Matrix* matrix_mul_com_escalar(double c, Matrix* m) {
     unsigned int nlins = matrix_nlins(m);
     unsigned int ncols = matrix_ncols(m);
-    printf("ok\n");
-    printf("%d %d\n", nlins, ncols);
+    // printf("ok\n");
+    // printf("%d %d\n", nlins, ncols);
 
     Matrix *m1 = _alloc_matrix(nlins, ncols);
     for (int i = 0; i < nlins; i++) {
@@ -349,9 +349,9 @@ MResponse matrix_inversa(Matrix *m) {
         for (int j = 0; j < ncols; j++) {
             aux = get_cofactor(m, i, j);
             VALUES(m1, i, j) = sign * matrix_det(aux);
-            printf("DEBUG INIT \n");
-            print_matrix(aux);
-            printf("END\n");
+            // printf("DEBUG INIT \n");
+            // print_matrix(aux);
+            // printf("END\n");
 
             sign = -sign;
             matrix_free(aux);
