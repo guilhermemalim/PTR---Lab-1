@@ -8,7 +8,7 @@ typedef struct SDString {
 
 DString *create_dstring_from_char(char *string);
 DString *create_dstring_from_int(int size);
-// Adicionar criação de DString a partir de outras DStrings
+DString *create_dstring_from_dstring(DString *dstring);
 
 DString *concatenar_dstrings(DString *s1, DString *s2);
 int get_dstring_size(DString *s);

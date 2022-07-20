@@ -17,7 +17,11 @@ DString *create_dstring_from_int(int size) {
     
     return s;
 }
-// Adicionar criação de DString a partir de outras DStrings
+DString *create_dstring_from_dstring(DString *dstring) {
+    DString *ds = create_dstring_from_char(get_dstring_buffer(dstring));
+
+    return ds;
+}
 
 DString *concatenar_dstrings(DString *s1, DString *s2) {
     int size = s1->size + s2->size;
