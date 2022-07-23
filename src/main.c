@@ -81,10 +81,10 @@ void teste_matrix() {
 
 int main() {
 
-    printf("Hey\n");
+    printf("Aplicando alguns testes nas ADTs criadas\n");
 
-    // teste_integrate();
-    // teste_dstring();
+    teste_integrate();
+    teste_dstring();
 
     teste_matrix();
 

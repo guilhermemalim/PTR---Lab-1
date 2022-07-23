@@ -90,6 +90,17 @@ void matrix_free(Matrix *m) {
     free(m);
     m = NULL;
 }
+void print_matrix(Matrix* m) {
+    unsigned int nlins = matrix_nlins(m);
+    unsigned int ncols = matrix_ncols(m);
+
+    for (int i = 0; i < nlins; i++) {
+        for (int j = 0; j < ncols; j++) {
+            printf("%lf ", matrix_get_value(m, i, j));
+        }
+        printf("\n");
+    }
+}
 
 double matrix_get_value(Matrix* m, int i, int j) {
     if(i >= m->nlins || j >= m->ncols)
@@ -104,81 +115,36 @@ unsigned int matrix_ncols(Matrix* m) {
     return m->ncols;
 }
 
-// Operações entre matrizes
-MResponse matrix_sum(Matrix* A, Matrix* B) {
-    unsigned int nlins_A = matrix_nlins(A);
-    unsigned int ncols_A = matrix_ncols(A);
-    unsigned int nlins_B = matrix_nlins(B);
-    unsigned int ncols_B = matrix_ncols(B);
+Matrix* create_matrix() {
+    unsigned int nlins = 0, ncols = 0;
+    double aux = 0;
+    
+    printf("Digite o numero de linhas e colunas (Ex: 3 3): ");
+    scanf("%d %d\n", &nlins, &ncols);
 
-    if ((nlins_A != nlins_B) || (ncols_A != ncols_B)) {
-        MResponse response = {.m = MATRIX_NULL, .erro = PROCESSO_SEM_ERRO};
-        return response;
-    }
+    Matrix *m = _alloc_matrix(nlins, ncols);
 
-    Matrix *m = _alloc_matrix(nlins_A, ncols_B);
-
-    for (int i = 0; i < nlins_A; i++) {
-        for (int j = 0; j < ncols_B; j++) {
-            VALUES(m, i, j) = matrix_get_value(A, i, j) + matrix_get_value(B, i, j);
+    for (int i = 0; i < nlins; i++) {
+        for (int j = 0; j < ncols; j++) {
+            printf("Digite o valor da matrix em [%d][%d]: ", i, j);
+            scanf("%lf\n", &aux);
+            VALUES(m, i, j) = aux;
         }
     }
-
-    MResponse response = {.m = m, .erro = PROCESSO_SEM_ERRO};
-
-    return response;
+    
+    return m;
 }
-MResponse matrix_dif(Matrix* A, Matrix* B) {
-    unsigned int nlins_A = matrix_nlins(A);
-    unsigned int ncols_A = matrix_ncols(A);
-    unsigned int nlins_B = matrix_nlins(B);
-    unsigned int ncols_B = matrix_ncols(B);
+Matrix* create_random_matrix(unsigned int nlins, unsigned int ncols) {
+    int MOD = 15;
+    Matrix *m = _alloc_matrix(nlins, ncols);
 
-    if ((nlins_A != nlins_B) || (ncols_A != ncols_B)) {
-        MResponse response = {.m = MATRIX_NULL, .erro = PROCESSO_SEM_ERRO};
-        return response;
-    }
-
-    Matrix *m = _alloc_matrix(nlins_A, ncols_B);
-
-    for (int i = 0; i < nlins_A; i++) {
-        for (int j = 0; j < ncols_B; j++) {
-            VALUES(m, i, j) = matrix_get_value(A, i, j) - matrix_get_value(B, i, j);
+    for (int i = 0; i < nlins; i++) {
+        for (int j = 0; j < ncols; j++) {
+            VALUES(m, i, j) = rand() % MOD;
         }
     }
-
-    MResponse response = {.m = m, .erro = PROCESSO_SEM_ERRO};
-
-    return response;
-}
-MResponse matrix_mul(Matrix* A, Matrix* B) {
-    unsigned int nlins_A = matrix_nlins(A);
-    unsigned int ncols_A = matrix_ncols(A);
-    unsigned int nlins_B = matrix_nlins(B);
-    unsigned int ncols_B = matrix_ncols(B);
-
-    if (ncols_A != nlins_B) {
-        MResponse response = {.m = MATRIX_NULL, .erro = ERRO_NA_MULTIPLICACAO};
-        return response;
-    }
-
-    Matrix *m = _alloc_matrix(nlins_A, ncols_B);
-    double sum = 0;
-    // processar multiplicação
-    for (int i = 0; i < nlins_A; i++) {
-        for (int j = 0; j < ncols_B; j++) {
-            sum = 0;
-
-            for(int k = 0; k < ncols_A; k++) {
-                sum += matrix_get_value(A, i, k) * matrix_get_value(B, k, j);
-            }
-            VALUES(m, i, j) = sum;
-        }
-    }
-
-    MResponse response = {.m = m, .erro = PROCESSO_SEM_ERRO};
-
-    return response;
+    
+    return m;
 }
 
 // Operações entre matriz-escalar
@@ -224,6 +190,84 @@ Matrix* matrix_mul_com_escalar(double c, Matrix* m) {
     return m1;
 }
 
+
+// Operações entre matrizes
+MResponse matrix_sum(Matrix* A, Matrix* B) {
+    unsigned int nlins_A = matrix_nlins(A);
+    unsigned int ncols_A = matrix_ncols(A);
+    unsigned int nlins_B = matrix_nlins(B);
+    unsigned int ncols_B = matrix_ncols(B);
+
+    if ((nlins_A != nlins_B) || (ncols_A != ncols_B)) {
+        MResponse response = {.m = MATRIX_NULL, .erro = MATRIZES_COM_DIM_DIFERENTES};
+        return response;
+    }
+
+    Matrix *m = _alloc_matrix(nlins_A, ncols_B);
+
+    for (int i = 0; i < nlins_A; i++) {
+        for (int j = 0; j < ncols_B; j++) {
+            VALUES(m, i, j) = matrix_get_value(A, i, j) + matrix_get_value(B, i, j);
+        }
+    }
+
+    MResponse response = {.m = m, .erro = PROCESSO_SEM_ERRO};
+
+    return response;
+}
+MResponse matrix_dif(Matrix* A, Matrix* B) {
+    unsigned int nlins_A = matrix_nlins(A);
+    unsigned int ncols_A = matrix_ncols(A);
+    unsigned int nlins_B = matrix_nlins(B);
+    unsigned int ncols_B = matrix_ncols(B);
+
+    if ((nlins_A != nlins_B) || (ncols_A != ncols_B)) {
+        MResponse response = {.m = MATRIX_NULL, .erro = MATRIZES_COM_DIM_DIFERENTES};
+        return response;
+    }
+
+    Matrix *m = _alloc_matrix(nlins_A, ncols_B);
+
+    for (int i = 0; i < nlins_A; i++) {
+        for (int j = 0; j < ncols_B; j++) {
+            VALUES(m, i, j) = matrix_get_value(A, i, j) - matrix_get_value(B, i, j);
+        }
+    }
+
+    MResponse response = {.m = m, .erro = PROCESSO_SEM_ERRO};
+
+    return response;
+}
+MResponse matrix_mul(Matrix* A, Matrix* B) {
+    unsigned int nlins_A = matrix_nlins(A);
+    unsigned int ncols_A = matrix_ncols(A);
+    unsigned int nlins_B = matrix_nlins(B);
+    unsigned int ncols_B = matrix_ncols(B);
+
+    if (ncols_A != nlins_B) {
+        MResponse response = {.m = MATRIX_NULL, .erro = ERRO_NA_MULTIPLICACAO};
+        return response;
+    }
+
+    Matrix *m = _alloc_matrix(nlins_A, ncols_B);
+    double sum = 0;
+    // processar multiplicação
+    for (int i = 0; i < nlins_A; i++) {
+        for (int j = 0; j < ncols_B; j++) {
+            sum = 0;
+
+            for(int k = 0; k < ncols_A; k++) {
+                sum += matrix_get_value(A, i, k) * matrix_get_value(B, k, j);
+            }
+            VALUES(m, i, j) = sum;
+        }
+    }
+
+    MResponse response = {.m = m, .erro = PROCESSO_SEM_ERRO};
+
+    return response;
+}
+
 Matrix* matrix_transposta(Matrix* m) {
     unsigned int nlins = matrix_nlins(m);
     unsigned int ncols = matrix_ncols(m);
@@ -238,43 +282,10 @@ Matrix* matrix_transposta(Matrix* m) {
     return t;
 }
 
-Matrix* create_matrix() {
-    unsigned int nlins = 0, ncols = 0;
-    double aux = 0;
-    
-    printf("Digite o numero de linhas e colunas (Ex: 3 3): ");
-    scanf("%d %d\n", &nlins, &ncols);
-
-    Matrix *m = _alloc_matrix(nlins, ncols);
-
-    for (int i = 0; i < nlins; i++) {
-        for (int j = 0; j < ncols; j++) {
-            printf("Digite o valor da matrix em [%d][%d]: ", i, j);
-            scanf("%lf\n", &aux);
-            VALUES(m, i, j) = aux;
-        }
-    }
-    
-    return m;
-}
-
-Matrix* create_random_matrix(unsigned int nlins, unsigned int ncols) {
-    int MOD = 15;
-    Matrix *m = _alloc_matrix(nlins, ncols);
-
-    for (int i = 0; i < nlins; i++) {
-        for (int j = 0; j < ncols; j++) {
-            VALUES(m, i, j) = rand() % MOD;
-        }
-    }
-    
-    return m;
-}
-
 // referência:
 // https://www.geeksforgeeks.org/determinant-of-a-matrix/
 // Método dos cofatores - Teorema de Laplace
-Matrix* get_cofactor(Matrix *m, int i, int j) {
+Matrix* matrix_get_cofactor(Matrix *m, int i, int j) {
     unsigned int nlins = matrix_nlins(m);
     unsigned int ncols = matrix_ncols(m);
 
@@ -315,9 +326,8 @@ double matrix_det(Matrix *m) {
  
     int sign = 1; // sinal do cofator
 
-    for (int f = 0; f < nlins; f++)
-    {
-        temp = get_cofactor(m, 0, f);
+    for (int f = 0; f < nlins; f++) {
+        temp = matrix_get_cofactor(m, 0, f);
         det += sign * matrix_get_value(m, 0, f) * matrix_det(temp);
 
         matrix_free(temp);  
@@ -347,11 +357,8 @@ MResponse matrix_inversa(Matrix *m) {
 
     for (int i = 0; i < nlins; i++) {
         for (int j = 0; j < ncols; j++) {
-            aux = get_cofactor(m, i, j);
+            aux = matrix_get_cofactor(m, i, j);
             VALUES(m1, i, j) = sign * matrix_det(aux);
-            // printf("DEBUG INIT \n");
-            // print_matrix(aux);
-            // printf("END\n");
 
             sign = -sign;
             matrix_free(aux);
@@ -368,16 +375,4 @@ MResponse matrix_inversa(Matrix *m) {
     MResponse response = {.m = r, .erro = PROCESSO_SEM_ERRO};
 
     return response;
-}
-
-void print_matrix(Matrix* m) {
-    unsigned int nlins = matrix_nlins(m);
-    unsigned int ncols = matrix_ncols(m);
-
-    for (int i = 0; i < nlins; i++) {
-        for (int j = 0; j < ncols; j++) {
-            printf("%lf ", matrix_get_value(m, i, j));
-        }
-        printf("\n");
-    }
 }

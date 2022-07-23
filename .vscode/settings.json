@@ -1,7 +1,8 @@
 {
     "makefile.extensionOutputFolder": "./.vscode",
     "files.associations": {
-        "integral.h": "c"
+        "integral.h": "c",
+        "dstring.h": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
