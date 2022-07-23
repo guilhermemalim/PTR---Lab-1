@@ -4,6 +4,7 @@
 #include "Matrix.h"
 
 void teste_integrate() {
+    printf("\n--- TESTE INTEGRAL ---\n");
 
     double t1(double a) {
         return a;
@@ -17,21 +18,20 @@ void teste_integrate() {
 }
 
 void teste_dstring() {
+    printf("\n--- TESTE DSTRING ---\n");
+
     char* s1 = "Teste_";
-    puts(s1);
+    printf("String base: %s\n", s1);
     DString *ds1 = create_dstring_from_char(s1);
-    printf("%d\n", ds1->size);
-    puts(get_dstring_buffer(ds1));
+    printf("DString criada a partir do char*: %s %d\n", get_dstring_buffer(ds1), ds1->size);
 
     char* s2 = "DString";
-    puts(s2);
+    printf("String base: %s\n", s2);
     DString *ds2 = create_dstring_from_char(s2);
-    printf("%d\n", ds2->size);
-    puts(get_dstring_buffer(ds2));
+    printf("DString criada a partir do char*: %s %d\n", get_dstring_buffer(ds2), ds2->size);
 
     DString *ds3 = concatenar_dstrings(ds1, ds2);
-    printf("%d\n", get_dstring_size(ds3));
-    puts(get_dstring_buffer(ds3));
+    printf("String concatenada: %s %d\n", get_dstring_buffer(ds3), get_dstring_size(ds3));
 
     destroyDString(ds1);
     destroyDString(ds2);
@@ -39,44 +39,131 @@ void teste_dstring() {
 }
 
 void teste_matrix() {
+    printf("\n--- TESTE MATRIX ---\n");
+
     unsigned int nlins = 3, ncols = 3;
-    Matrix* m1 = matrix_ones(nlins, ncols);
-    Matrix* id = matrix_identity(nlins, ncols);
 
-    print_matrix(m1);
-    printf("FIM\n");
-    print_matrix(id);
+    // Teste de criação e apply
+    void teste1() {
+        printf("\n--- TESTE CRIACAO E APPLY ---\n");
+        Matrix* m1 = matrix_ones(nlins, ncols);
+        Matrix* m2 = matrix_zeros(nlins, ncols);
+        Matrix* id = matrix_identity(nlins, ncols);
 
-    MResponse response1 = matrix_mul(m1, id);
-    printf("FIM\n");
-    print_matrix(response1.m);
-    
-    printf("Det m1: %lf\n", matrix_det(m1));
-    printf("Det id: %lf\n", matrix_det(id));
+        printf("Matriz de 1s:\n");
+        print_matrix(m1);
 
-    Matrix *m2 = create_random_matrix(4,4);
-    printf("FIM\n");
-    print_matrix(m2);
-    printf("Det m2: %lf\n", matrix_det(m2));
+        printf("Matriz de 0s:\n");
+        print_matrix(m2);
 
-    MResponse rm2_1 = matrix_inversa(m2);
-    Matrix *m2_1 = rm2_1.m;
-    printf("Erro na inversao: %d\n", rm2_1.erro);
-    printf("FIM\n");
-    print_matrix(m2_1);
+        printf("Matriz identidade:\n");
+        print_matrix(id);
 
-    MResponse mul = matrix_mul(m2, m2_1);
-    Matrix *m3 = mul.m;
+        double aplicacao(double a) {
+            return 8*a;
+        }
 
-    printf("FIM\n");
-    print_matrix(m3);
+        Matrix* m3 = matrix_apply(aplicacao, m1);
+        printf("Matriz resultante da aplicacao de 8x:\n");
+        print_matrix(m3);
 
+        matrix_free(m1);
+        matrix_free(m2);
+        matrix_free(m3);
+        matrix_free(id);
+    }
 
-    matrix_free(m1);
-    matrix_free(id);
-    matrix_free(m2);
-    matrix_free(m2_1);
-    matrix_free(m3);
+    // Teste de operações com escalar
+    void teste2() {
+        printf("\n--- TESTE DE OPERACOES COM ESCALAR ---\n");
+        Matrix* m1 = matrix_ones(nlins, ncols);
+
+        printf("Matriz de 1s:\n");
+        print_matrix(m1);
+
+        double c = 5;
+
+        Matrix *m2 = matrix_sum_com_escalar(c, m1);
+        printf("Resultado da soma +%lf:\n", c);
+        print_matrix(m2);
+
+        Matrix *m3 = matrix_dif_com_escalar(c, m1);
+        printf("Resultado da subtração -%lf:\n", c);
+        print_matrix(m3);
+
+        Matrix *m4 = matrix_mul_com_escalar(c, m1);
+        printf("Resultado da multiplicacao x%lf:\n", c);
+        print_matrix(m4);
+
+        matrix_free(m1);
+        matrix_free(m2);
+        matrix_free(m3);
+        matrix_free(m4);
+    }
+
+    // Teste de operações com matrix
+    void teste3() {
+        printf("\n--- TESTE DE OPERACOES COM MATRIZ ---\n");
+        Matrix* m1 = create_random_matrix(nlins, ncols);
+        Matrix* m2 = create_random_matrix(nlins, ncols);
+
+        printf("Matriz m1:\n");
+        print_matrix(m1);
+
+        printf("Matriz m2:\n");
+        print_matrix(m2);
+
+        MResponse rm3 = matrix_sum(m1, m2);
+        Matrix* m3 = rm3.m;
+        printf("Resultado da soma entre matrizes:\n");
+        print_matrix(m3);
+
+        MResponse rm4 = matrix_dif(m1, m2);
+        Matrix* m4 = rm4.m;
+        printf("Resultado da subtração entre matrizes:\n");
+        print_matrix(m4);
+
+        MResponse rm5 = matrix_mul(m1, m2);
+        Matrix* m5 = rm5.m;
+        printf("Resultado da multiplicacao entre matrizes:\n");
+        print_matrix(m5);
+
+        matrix_free(m1);
+        matrix_free(m2);
+        matrix_free(m3);
+        matrix_free(m4);
+        matrix_free(m5);
+    }
+
+    // Teste de determinante, matriz inversa e cofator
+    void teste4() {
+        printf("\n--- TESTE DE DETERMINANTE E MATRIZ INVERSA ---\n");
+        Matrix* m1 = create_random_matrix(nlins, ncols);
+
+        printf("Matriz m1:\n");
+        print_matrix(m1);
+
+        printf("Determinante de m1: %lf\n", matrix_det(m1));
+
+        MResponse rm2 = matrix_inversa(m1);
+        Matrix *m2 = rm2.m;
+
+        printf("Matriz inversa de m1:\n");
+        print_matrix(m2);
+
+        Matrix *m3 = matrix_get_cofactor(m1, 0, 0);
+        printf("Matriz cofator indice 0,0 de m1:\n");
+        print_matrix(m3);
+
+        matrix_free(m1);
+        matrix_free(m2);
+        matrix_free(m3);
+    }
+
+    teste1();
+    teste2();
+    teste3();
+    teste4();
 }
 
 int main() {

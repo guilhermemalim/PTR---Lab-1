@@ -177,8 +177,6 @@ Matrix* matrix_dif_com_escalar(double c, Matrix* m) {
 Matrix* matrix_mul_com_escalar(double c, Matrix* m) {
     unsigned int nlins = matrix_nlins(m);
     unsigned int ncols = matrix_ncols(m);
-    // printf("ok\n");
-    // printf("%d %d\n", nlins, ncols);
 
     Matrix *m1 = _alloc_matrix(nlins, ncols);
     for (int i = 0; i < nlins; i++) {
