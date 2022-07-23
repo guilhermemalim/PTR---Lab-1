@@ -1,8 +1,8 @@
 make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --question
-process_begin: CreateProcess(NULL, basename c:/Users/guilh/Desktop/Tudo/UFAM/ptr/lab1, ...) failed.
+process_begin: CreateProcess(NULL, basename c:/Users/guilh/Desktop/Tudo/UFAM/ptr/Atividade-1, ...) failed.
 Makefile:23: pipe: No error
 
-process_begin: CreateProcess(NULL, basename c:/Users/guilh/Desktop/Tudo/UFAM/ptr/lab1, ...) failed.
+process_begin: CreateProcess(NULL, basename c:/Users/guilh/Desktop/Tudo/UFAM/ptr/Atividade-1, ...) failed.
 Makefile:36: pipe: No error
 
 # GNU Make 4.3
@@ -11,9 +11,8 @@ Makefile:36: pipe: No error
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
- 
 
-# Make data base, printed on Fri Jul 22 11:29:37 2022
+# Make data base, printed on Fri Jul 22 21:01:11 2022
 
 # Variables
 
@@ -28,7 +27,7 @@ LOCALAPPDATA = C:\Users\guilh\AppData\Local
 # environment
 WSLENV = WT_SESSION::WT_PROFILE_ID
 # environment
-VSCODE_CWD = C:\Users\guilh\Desktop\Tudo\UFAM\ptr\lab1
+VSCODE_CWD = C:\Users\guilh\Desktop\Tudo\UFAM\ptr\Atividade-1
 # makefile (from 'Makefile', line 12)
 incdir = ./inc
 # environment
@@ -44,7 +43,7 @@ MAKE_COMMAND := C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe
 # automatic
 @D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_22632_RIDNZAQRPBQKXDSN
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_22328_JVVLNMNTLCKDZZKQ
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -65,15 +64,14 @@ LANG = C
 TMP = C:\Users\guilh\AppData\Local\Temp
 # default
 .INCLUDE_DIRS = .
-# en 
-vironment
+# environment
 PROCESSOR_ARCHITEW6432 = AMD64
 # makefile
 MAKEFLAGS = pqrR
 # environment
 ONEDRIVE = C:\Users\guilh\OneDrive
 # makefile
-CURDIR := c:/Users/guilh/Desktop/Tudo/UFAM/ptr/lab1
+CURDIR := c:/Users/guilh/Desktop/Tudo/UFAM/ptr/Atividade-1
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # automatic
@@ -93,7 +91,7 @@ MAKEFILE_LIST := Makefile
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 22632
+VSCODE_PID = 22328
 # makefile (from 'Makefile', line 7)
 sources = $(filter-out $(srcdir)/main.c, $(wildcard $(srcdir)/*.c))
 # environment
@@ -133,8 +131,7 @@ MAKELEVEL := 0
 # default
 MAKE = $(MAKE_COMMAND)
 # environment
-PATH = C:\Program Files\WindowsApps\Microsoft.PowerShell_7.2.5.0_x64__8wekyb3d8bbwe;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Python310\Scripts\;C:\Python310\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\MinGW\bin;C:\Program Files\Git\cmd;C:\Program Files\dotnet\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Polyspace\R2020a\runtime\win64;C:\Program Files\Polyspace\R2020a\bin;C:\Program Files\Polyspace\R2020a\polyspace\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\guilh\AppData\Local\Microsoft\WindowsApps;C:\Users\guilh\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\guilh\AppData\Roaming\npm;C:\Users\guilh\AppData\Local\GitHubDesktop\bin;C:\Program Files\heroku\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2021.3.1\bin;C:\Users\guilh\.dotnet\tools;C:\tools\mysql\current\bin;C:\Program Files\JetBrains\CLion 2022.1.2\bin;C:\Users\guilh\AppData\Local\JetBrains\Toolbox\scripts;C:\U 
-sers\guilh\AppData\Local\Microsoft\WindowsApps
+PATH = C:\Program Files\WindowsApps\Microsoft.PowerShell_7.2.5.0_x64__8wekyb3d8bbwe;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Python310\Scripts\;C:\Python310\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\MinGW\bin;C:\Program Files\Git\cmd;C:\Program Files\dotnet\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Polyspace\R2020a\runtime\win64;C:\Program Files\Polyspace\R2020a\bin;C:\Program Files\Polyspace\R2020a\polyspace\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\guilh\AppData\Local\Microsoft\WindowsApps;C:\Users\guilh\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\guilh\AppData\Roaming\npm;C:\Users\guilh\AppData\Local\GitHubDesktop\bin;C:\Program Files\heroku\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2021.3.1\bin;C:\Users\guilh\.dotnet\tools;C:\tools\mysql\current\bin;C:\Program Files\JetBrains\CLion 2022.1.2\bin;C:\Users\guilh\AppData\Local\JetBrains\Toolbox\scripts;C:\Users\guilh\AppData\Local\Microsoft\WindowsApps
 # environment
 ZES_ENABLE_SYSMAN = 1
 # environment
@@ -152,7 +149,7 @@ CHOCOLATEYLASTPATHUPDATE = 132907958276811674
 # environment
 INTELLIJ IDEA = C:\Program Files\JetBrains\IntelliJ IDEA 2021.3.1\bin;
 # environment
-WT_SESSION = 71e5f1cb-b2d5-4a0b-a2a4-78d71842b23f
+WT_SESSION = 451add72-ad6f-44a7-82db-e33dbfdcff78
 # environment
 LOGONSERVER = \\GUILHERME-ASPIR
 # environment
@@ -234,8 +231,7 @@ ELECTRON_NO_ATTACH_CONSOLE = 1
 # makefile (from 'Makefile', line 14)
 libdir = ./lib
 # default
-.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment g 
-rouped-target extra-prereqs archives jobserver output-sync load
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync load
 # environment
 PROCESSOR_REVISION = 8e0b
 # makefile (from 'Makefile', line 16)
@@ -253,11 +249,10 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 142 Stepping 11, GenuineIntel
 
 # Directories
 
-# src (key c:/Users/guilh/Desktop/Tudo/UFAM/p 
-tr/lab1/src, mtime 1658259989): No files, no impossibilities so far.
-# . (key c:/Users/guilh/Desktop/Tudo/UFAM/ptr/lab1, mtime 1658357160): 11 files, no impossibilities.
+# src (key c:/Users/guilh/Desktop/Tudo/UFAM/ptr/Atividade-1/src, mtime 1658534578): No files, no impossibilities so far.
+# . (key c:/Users/guilh/Desktop/Tudo/UFAM/ptr/Atividade-1, mtime 1658537841): 10 files, no impossibilities.
 
-# 11 files, no impossibilities in 2 directories.
+# 10 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
@@ -272,8 +267,7 @@ obj/%.o: src/%.c
 Makefile:
 #  Implicit rule search has been done.
 #  Last modified 2022-06-30 00:55:35
-#  File has bee 
-n updated.
+#  File has been updated.
 #  Successfully updated.
 
 clean:
@@ -333,13 +327,12 @@ run:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 20 / s 
-torage = 124 B / avg = 6 B
-# current buf: size = 8174 B / used = 124 B / count = 20 / avg = 6 B
+# strcache buffers: 1 (0) / strings = 19 / storage = 119 B / avg = 6 B
+# current buf: size = 8174 B / used = 119 B / count = 19 / avg = 6 B
 
-# strcache performance: lookups = 33 / hit rate = 39%
+# strcache performance: lookups = 32 / hit rate = 40%
 # hash-table stats:
-# Load=20/8192=0%, Rehash=0, Collisions=0/33=0%
-# Finished Make data base on Fri Jul 22 11:29:37 2022
+# Load=19/8192=0%, Rehash=0, Collisions=0/32=0%
+# Finished Make data base on Fri Jul 22 21:01:11 2022
 
  

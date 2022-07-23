@@ -1,3 +1,6 @@
+// Guilherme Matheus - 21950880
+// Odalisio Neto - 21950520
+
 #include <stdio.h>
 #include "Integral.h"
 #include "DString.h"
@@ -167,7 +170,10 @@ void teste_matrix() {
 }
 
 int main() {
-
+    printf("Alunos: \n");
+    printf("Guiherme Matheus - 21950880\n");
+    printf("Odalisio Neto - 21950520\n");
+    printf("\n");
     printf("Aplicando alguns testes nas ADTs criadas\n");
 
     teste_integrate();
