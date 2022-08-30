@@ -163,10 +163,31 @@ void teste_matrix() {
         matrix_free(m3);
     }
 
+    // TODO arrumar o teste
+    // Teste de matriz inversa com um zero na diagonal principal
+    void teste5() {
+        printf("\n--- TESTE MATRIZ INVERSA COM 0 NA DP ---\n");
+        Matrix* m1 = create_random_matrix(nlins, ncols);
+        VALUES(m1, 1, 1) = 0;
+        
+        MResponse response_inv = matrix_inversa(m1);
+        Matrix *m2 = response_inv.m;
+
+        printf("Matriz m1:\n");
+        print_matrix(m1);
+
+        printf("Matriz inversa:\n");
+        print_matrix(m2);
+
+        matrix_free(m1);
+        matrix_free(m2);
+    }
+
     teste1();
     teste2();
     teste3();
     teste4();
+    teste5();
 }
 
 int main() {
